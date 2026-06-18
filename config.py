@@ -13,8 +13,12 @@ OUTPUT_DIR   = "./output"          # Where the final .glb will be saved
 WORK_DIR     = "./workspace"       # Temp working directory (COLMAP files)
 
 # ─── COLMAP Settings ──────────────────────────────────────────────
-# Path to COLMAP executable. If added to PATH, leave as "colmap"
-COLMAP_BIN   = r"C:\Users\lenovo\.gemini\antigravity-ide\scratch\3d_pipeline\colmap\bin\colmap.exe"
+# Check if COLMAP is bundled locally, otherwise assume it's installed in system PATH
+local_colmap = os.path.join(os.path.dirname(__file__), "colmap", "bin", "colmap.exe")
+if os.path.exists(local_colmap):
+    COLMAP_BIN = local_colmap
+else:
+    COLMAP_BIN = "colmap"
 
 # Use GPU for COLMAP steps (1 = yes, 0 = CPU only)
 # MX450 supports CUDA, so we try GPU first
