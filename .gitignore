@@ -1,0 +1,14 @@
+# Ignore the massive 3D engine and its DLLs to avoid GitHub 100MB limit blocks
+colmap/
+colmap-windows-cuda.zip
+
+# Ignore temporary workspaces and output meshes
+workspace/
+output/
+
+# Ignore images to save space
+images/
+
+# Python cache
+__pycache__/
+*.pyc
